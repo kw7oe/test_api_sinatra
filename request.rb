@@ -1,6 +1,6 @@
 require "net/http"
 
-base_url = "http://localhost:3000"
+base_url = "https://testing-api-1.herokuapp.com/"
 end_point = "/api/people"
 # Get All
 uri = URI(base_url + end_point)
@@ -8,7 +8,7 @@ res = Net::HTTP.get_response(uri)
 puts res.body
 
 # Post
-res = Net::HTTP.post_form(uri, "name" => "Peter", "gender" => "Male", "age" => "18")
+res = Net::HTTP.post_form(uri, "name" => "Doctor Strange", "gender" => "Male", "age" => "35")
 puts res.body
 
 # uri = URI(base_url)

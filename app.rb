@@ -35,6 +35,7 @@ get "/api/people" do
 end
 
 post "/api/people" do 
+  puts params["name"]
   @person = Person.create(name: params["name"], 
     gender: params["gender"],
     age: params["age"])
