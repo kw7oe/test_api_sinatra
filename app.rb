@@ -10,7 +10,7 @@ class Person < ActiveRecord::Base
   end
 
   def self.all_to_json
-    { tasks: Person.all.map { |t| t.to_json } }
+    { people: Person.all.map { |t| t.to_json } }
   end
 end
 
