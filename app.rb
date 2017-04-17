@@ -20,7 +20,7 @@ helpers do
     JSON({response: "Succeed"})
   end
 
-  def failed
+  def failed 
     JSON({response: "Failed"})
   end
 
@@ -31,6 +31,7 @@ end
 
 get "/weather/:location" do 
   content_type :json
+  headers 'Access-Control-Allow-Origin' => 'https://kw7oe.github.io'
   params[:location]
   base_url =  "http://api.openweathermap.org/data/2.5/weather?q=";
   end_point = "&APPID=" + ENV['WEATHER_API_KEY'];
