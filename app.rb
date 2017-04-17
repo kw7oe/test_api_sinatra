@@ -1,6 +1,7 @@
 require "sinatra"
 require "json"
 require "sinatra/activerecord"
+require "net/http"
 require "./environment"
 
 class Person < ActiveRecord::Base
@@ -26,6 +27,16 @@ helpers do
   def error(e)
     JSON({error: e})
   end
+end
+
+get "/weather/:location" do 
+  content_type :json
+  params[:location]
+  base_url =  "http://api.openweathermap.org/data/2.5/weather?q=";
+  end_point = "&APPID=" + ENV['WEATHER_API_KEY'];
+  uri = URI(base_url + params['location'] +end_point)
+  res = Net::HTTP.get_response(uri)
+  JSON(res.body)
 end
 
 get "/api/people" do 
