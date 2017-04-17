@@ -35,8 +35,9 @@ get "/weather/:location" do
   base_url =  "http://api.openweathermap.org/data/2.5/weather?q=";
   end_point = "&APPID=" + ENV['WEATHER_API_KEY'];
   uri = URI(base_url + params['location'] +end_point)
-  res = Net::HTTP.get_response(uri)
-  JSON(res.body)
+  res = Net::HTTP.get_response(uri).body
+  puts res
+  res
 end
 
 get "/api/people" do 
