@@ -8,7 +8,7 @@ res = Net::HTTP.get_response(uri)
 puts res.body
 
 # Post
-res = Net::HTTP.post_form(uri, "name" => "Doctor Strange", "gender" => "Male", "age" => "35")
+res = Net::HTTP.post_form(uri, "name" => "Peter Parker", "gender" => "Male", "age" => "20")
 puts res.body
 
 # uri = URI(base_url)
