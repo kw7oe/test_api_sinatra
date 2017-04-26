@@ -49,6 +49,7 @@ get "/api/people" do
 end
 
 post "/api/people" do 
+  headers 'Access-Control-Allow-Origin' => '*'
   @person = Person.create(name: params["name"], 
     gender: params["gender"],
     age: params["age"])
