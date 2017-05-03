@@ -44,7 +44,6 @@ end
 get "/api/people" do 
   content_type :json 
   @people = Person.all_to_json
-  headers 'Access-Control-Allow-Origin' => '*'
   JSON(@people)
 end
 
