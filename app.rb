@@ -43,11 +43,13 @@ end
 
 get "/api/people" do 
   content_type :json 
+  headers 'Access-Control-Allow-Origin' => '*'
   @people = Person.all_to_json
   JSON(@people)
 end
 
 post "/api/people" do 
+  headers 'Access-Control-Allow-Origin' => '*'
   @person = Person.create(
     name: params["name"], 
     gender: params["gender"],
